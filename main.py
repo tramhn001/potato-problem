@@ -7,7 +7,7 @@ class Plant:
         self.energy += sunlight_energy
 
     def __str__(self):
-        return f'I am a {type(self).__name__} and I have {self.energy} energy!' 
+        return f"I am a {type(self).__name__} and I have {self.energy} energy!" 
 
 
 ##########################################
@@ -22,7 +22,7 @@ assert issubclass(Potato, Plant), "Potato must be a subclass of Plant"
 my_potato = Potato(70)
 assert my_potato.energy == 70
 assert my_potato.tubers == []
-assert str(my_potato) == 'I am a Potato and I have 70 energy!'
+assert str(my_potato) == "I am a Potato and I have 70 energy!"
 print("Wave 1 passed!")
 
 
