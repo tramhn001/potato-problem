@@ -9,11 +9,34 @@ class Plant:
     def __str__(self):
         return f"I am a {type(self).__name__} and I have {self.energy} energy!" 
 
+class Potato(Plant):
+    def __init__(self, starting_energy):
+        super().__init__(starting_energy) # Inherit from parent
+        self.tubers = [] # new addition 
 
-##########################################
-#       Add your new classes here!       #
-# (Make sure not to accidentally indent) #
-##########################################
+    def sprout_tuber(self):
+        if self.energy >= 30:
+            new_tuber = Tuber()
+            self.tubers.append(new_tuber)
+            self.energy -= 30
+        else:
+            print("Not enough energy to sprout tuber")
+    
+    def absorb_sunlight(self, sunlight_energy):
+        if self.tubers:
+            self.energy += sunlight_energy // 2
+            energy_per_tube = sunlight_energy // (2 * len(self.tubers))
+            for tuber in self.tubers:
+                tuber.energy += energy_per_tube
+        
+        else:
+            self.energy += sunlight_energy
+
+class Tuber:
+    def __init__(self):
+        self.energy = 30
+    
+
 
 
 ########## WAVE 1 ##########
